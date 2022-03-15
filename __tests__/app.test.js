@@ -62,7 +62,7 @@ describe('refactory routes', () => {
   });
 
   it('should be able to delete an order', async () => {
-    const order = await Order.getById({ product: 'Widget', quantity: 1 });
+    const order = await Order.insert({ product: 'Widget', quantity: 1 });
     const res = await request(app).delete(`/api/v1/orders/${order.id}`);
 
     expect(res.body).toEqual(order);
